@@ -18,7 +18,7 @@ include_directories(${googlemock_SOURCE_DIR}/include)
 include_directories(${misamino_survey_src_SOURCE_DIR})
 include_directories(${misamino_SOURCE_DIR})
 
-add_executable(${PROJECT_NAME} ${misamino_SRC} ${misamino_survey_test_SRC})
+add_executable(${PROJECT_NAME} ${misamino_SRC} ${misamino_survey_src_SRC} ${misamino_survey_test_SRC})
 
 target_link_libraries(${PROJECT_NAME}
         gtest
