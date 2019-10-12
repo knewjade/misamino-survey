@@ -240,9 +240,6 @@ namespace survey {
         // "39|1111011111\n"
         // "40|1101000111\n"
 
-//        field.paste(5, 17, getGem(GEMTYPE_I, Rotation::Left));
-//        std::cout << field << std::endl;
-//
         int x = 5;
         int y = 17;
         auto gem = getGem(GEMTYPE_I, Rotation::Spawn);
@@ -267,6 +264,7 @@ namespace survey {
         EXPECT_EQ(field.getAttack(2, 1), 4);  // TSD
         EXPECT_EQ(field.getAttack(3, 1), 6);  // TST
 
+        // wallkick==2のとき、厳密には火力を確定できない
         EXPECT_EQ(field.getAttack(1, 2), 0);  // TSM
         EXPECT_EQ(field.getAttack(2, 2), 4);  // TSM Double  // ぷよテトでは1
 
@@ -276,6 +274,7 @@ namespace survey {
         EXPECT_EQ(field.getAttack(2, 1), 5);  // B2B TSD
         EXPECT_EQ(field.getAttack(3, 1), 7);  // B2B TST
 
+        // wallkick==2のとき、厳密には火力を確定できない
         EXPECT_EQ(field.getAttack(1, 2), 1);  // B2B TSM
         EXPECT_EQ(field.getAttack(2, 2), 5);  // B2B TSM Double  // ぷよテトでは2
     }
