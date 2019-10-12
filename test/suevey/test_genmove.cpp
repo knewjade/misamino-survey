@@ -50,4 +50,23 @@ namespace survey {
                       << std::endl;
         }
     }
+
+    TEST_F(GenMoveTest, FindPathMoving) {
+        auto field = GameField();
+        field.reset(10, 20);
+        field.setBlock(0, 19);
+
+        auto movs = std::vector<Moving>{};
+        auto gem = getGem(GEMTYPE_I, Rotation::Spawn);
+        FindPathMoving(field, movs, gem, 3, 1, false);
+        EXPECT_EQ(movs.size(), 34);
+
+//        for (const auto &item : movs) {
+//            std::cout << item.x << ","
+//                      << item.y << ","
+//                      << (int) item.spin << ","
+//                      << (int) item.wallkick_spin << ","
+//                      << std::endl;
+//        }
+    }
 }
