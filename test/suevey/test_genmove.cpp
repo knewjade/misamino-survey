@@ -13,23 +13,24 @@ namespace survey {
     };
 
     TEST_F(GenMoveTest, getComboAttack) {
-        AI::setComboList(std::vector{0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5});
+        AI::setComboList(std::vector{0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5});
         MisaBot.tetris.m_ai_param.combo = 30;
         EXPECT_EQ(getComboAttack(0), 0);
         EXPECT_EQ(getComboAttack(1), 0);
-        EXPECT_EQ(getComboAttack(2), 1);
+        EXPECT_EQ(getComboAttack(2), 0);
         EXPECT_EQ(getComboAttack(3), 1);
-        EXPECT_EQ(getComboAttack(4), 2);
+        EXPECT_EQ(getComboAttack(4), 1);
         EXPECT_EQ(getComboAttack(5), 2);
-        EXPECT_EQ(getComboAttack(6), 3);
+        EXPECT_EQ(getComboAttack(6), 2);
         EXPECT_EQ(getComboAttack(7), 3);
-        EXPECT_EQ(getComboAttack(8), 4);
+        EXPECT_EQ(getComboAttack(8), 3);
         EXPECT_EQ(getComboAttack(9), 4);
         EXPECT_EQ(getComboAttack(10), 4);
-        EXPECT_EQ(getComboAttack(11), 5);
+        EXPECT_EQ(getComboAttack(11), 4);
         EXPECT_EQ(getComboAttack(12), 5);
         EXPECT_EQ(getComboAttack(13), 5);
         EXPECT_EQ(getComboAttack(14), 5);
+        EXPECT_EQ(getComboAttack(15), 5);
     }
 
     TEST_F(GenMoveTest, GenMoving) {
