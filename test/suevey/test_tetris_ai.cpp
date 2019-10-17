@@ -57,4 +57,117 @@ namespace survey {
         );
         EXPECT_EQ(score, 0);
     }
+
+    TEST_F(TetrisAITest, Evaluate2) {
+//        long long &clearScore, double &avg_height, const AI_Param& ai_param, const GameField& last_pool, const GameField& pool, int cur_num,
+//        int curdepth,
+//        int total_clear_att, int total_clears, int clear_att, int clears, signed char wallkick_spin,
+//        int lastCombo, int t_dis, int upcomeAtt
+
+        long long clearScore = 0;
+        double avg_height = 0;
+        auto param = AI_Param{};
+        param.tspin3 = 1;
+
+        auto field = GameField();
+        field.reset(10, 20);
+
+        {
+            int y = 20;
+            field.setBlockDirect(0, y);
+            field.setBlockDirect(2, y);
+            field.setBlockDirect(3, y);
+            field.setBlockDirect(4, y);
+            field.setBlockDirect(5, y);
+            field.setBlockDirect(6, y);
+            field.setBlockDirect(7, y);
+            field.setBlockDirect(8, y);
+            field.setBlockDirect(9, y);
+        }
+
+        {
+            int y = 19;
+            field.setBlockDirect(0, y);
+            field.setBlockDirect(2, y);
+            field.setBlockDirect(3, y);
+            field.setBlockDirect(4, y);
+            field.setBlockDirect(5, y);
+            field.setBlockDirect(6, y);
+            field.setBlockDirect(7, y);
+            field.setBlockDirect(8, y);
+            field.setBlockDirect(9, y);
+        }
+
+        {
+            int y = 18;
+            field.setBlockDirect(0, y);
+            field.setBlockDirect(1, y);
+            field.setBlockDirect(2, y);
+            field.setBlockDirect(3, y);
+            field.setBlockDirect(4, y);
+            field.setBlockDirect(5, y);
+            field.setBlockDirect(6, y);
+            field.setBlockDirect(7, y);
+            field.setBlockDirect(8, y);
+        }
+
+        {
+            int y = 17;
+            field.setBlockDirect(0, y);
+            field.setBlockDirect(2, y);
+            field.setBlockDirect(3, y);
+            field.setBlockDirect(4, y);
+            field.setBlockDirect(5, y);
+            field.setBlockDirect(6, y);
+            field.setBlockDirect(7, y);
+            field.setBlockDirect(8, y);
+            field.setBlockDirect(9, y);
+        }
+
+        field.setBlockDirect(0, 16);
+        field.setBlockDirect(0, 15);
+        field.setBlockDirect(0, 14);
+        field.setBlockDirect(1, 14);
+        field.setBlockDirect(1, 16);
+        field.setBlockDirect(3, 16);
+        field.setBlockDirect(3, 15);
+        field.setBlockDirect(3, 14);
+
+        std::cout << field << std::endl;
+
+        int score = Evaluate(
+                clearScore, avg_height, param, field, field, GEMTYPE_I, 0,
+                0, 0, 0, 0, 0, 0, 0, 0
+        );
+        EXPECT_EQ(score, 0);
+    }
+
+    TEST_F(TetrisAITest, EvaluateRen) {
+//        long long &clearScore, double &avg_height, const AI_Param& ai_param, const GameField& last_pool, const GameField& pool, int cur_num,
+//        int curdepth,
+//        int total_clear_att, int total_clears, int clear_att, int clears, signed char wallkick_spin,
+//        int lastCombo, int t_dis, int upcomeAtt
+
+        long long clearScore = 0;
+        double avg_height = 0;
+        auto param = AI_Param{};
+        param.strategy_4w = 1;
+
+        auto field = GameField();
+        field.reset(10, 20);
+
+        {
+            int y = 20;
+            field.setBlockDirect(4, y);
+            field.setBlockDirect(5, y);
+        }
+
+        std::cout << field << std::endl;
+
+        int score = Evaluate(
+                clearScore, avg_height, param, field, field, GEMTYPE_I, 0,
+                0, 0, 0, 0, 0, 0, 0, 0
+        );
+        EXPECT_EQ(score, 0);
+    }
 }
