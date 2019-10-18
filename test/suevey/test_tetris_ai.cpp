@@ -158,8 +158,9 @@ namespace survey {
 
         {
             int y = 20;
-            field.setBlockDirect(4, y);
-            field.setBlockDirect(5, y);
+            field.setBlockDirect(3, 19);
+            field.setBlockDirect(4, 20);
+//            field.setBlockDirect(5, 18);
         }
 
         std::cout << field << std::endl;
